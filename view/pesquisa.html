@@ -1,0 +1,94 @@
+<div class="container" style="margin-top: 35px">
+		<div class="row center  card-panel  deep-orange darken-3 white-text">
+			<h4>Filtro de produtos - GRUPO FIGUEIREDO</h4>
+		</div>		
+		<div class="row  card-panel">
+			<!-- Switch -->			  
+			<div class="input-field col s4">				
+			  <i class="material-icons prefix">search</i>
+			  <input type="text" ng-model="input.id">
+			  <label for="text">Pesquisar Código</label>
+			</div>	
+			<div class="input-field col s6">				
+			  <i class="material-icons prefix">search</i>
+			  <input type="text" ng-model="input.produto">
+			  <label for="text">Pesquisar Produto</label>
+			</div>
+			<div class="col s2">			    
+			    <p>
+				    <input type="checkbox" ng-model="input.iniciaCom" class="filled-in" id="checkboxInputProdutoId" />
+				    <label for="checkboxInputProdutoId">Inicia com</label>
+				</p>
+			</div>
+			<div class="col s12">
+				<div class="col s6">
+					<div class="row">
+						<div class="input-field col s6">
+						  <i class="material-icons prefix">attach_money</i>
+						  <input type="text" ng-model="input.valorMin">
+						  <label class="active" for="text">Valor Mínimo</label>
+						</div>
+					    <div class="input-field col s6">
+						  <i class="material-icons prefix">attach_money</i>
+						  <input type="text" ng-model="input.valorMax">
+						  <label class="active" for="text">Valor Máximo</label>
+						</div>	
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="row">
+						<div class="input-field col s6">
+						  <i class="material-icons prefix">storage</i>
+						  <input type="text" ng-model="input.estoqueMin">
+						  <label class="active" for="text">Estoque Mínimo</label>
+						</div>
+					    <div class="input-field col s6">
+						  <i class="material-icons prefix">storage</i>
+						  <input type="text" ng-model="input.estoqueMax">
+						  <label class="active" for="text">Estoque Máximo</label>
+						</div>	
+					</div>
+				</div>					
+			</div>
+			<div id="tabelaImpressao">
+				<table class="centered striped" >
+				    <thead>
+				      <tr>
+				        <th>Código</th>
+				        <th class="file-field"> <span ng-click="ordenarPesquisa('NomeProduto')">Produto</span> </th>
+				        <th class="file-field"> <span ng-click="ordenarPesquisa('Venda')">Valor</span> </th>
+				        <th class="file-field"> <span ng-click="ordenarPesquisa('saldoTotal')">Estoque</span> </th>
+				      </tr>
+				    </thead>
+				    <tbody ng-if="esconderDados">
+				      <tr ng-repeat="var in produtos | filter: {Codigo: pesquisa.id} | filtroNome: {NomeProduto: pesquisa} | filter: {NomeProduto: pesquisa.produto} | orderBy: ordemPesquisa:inverso | filtroPesquisa:pesquisa">
+				        <td> {{var.Codigo}} </td>
+				        <td> {{var.NomeProduto}} </td>
+				        <td> R$ {{ var.Venda | number: 2 }} </td>
+				        <td> {{ var.saldoTotal }} </td>
+				      </tr>
+				    </tbody>
+			  	</table>	
+		  	</div>	
+		</div>
+
+    </div>
+    <!-- fim table -->
+
+    <div class="fixed-action-btn vertical">
+		<a class="btn-floating btn-large red">
+			<i class="large material-icons">menu</i>
+		</a>
+		<ul>
+			<li>
+				<a class="btn-floating blue">
+					<i ng-click="pesquisaLista(input)" class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Pesquisa">search</i>
+				</a>
+			</li>
+			<li>
+				<a class="btn-floating green darken-1" id="btnImprimir">
+					<i  class="material-icons tooltipped" data-position="left" data-delay="50" data-tooltip="Gerar Impressão" >file_download</i>
+				</a>
+			</li>
+		</ul>
+	</div>

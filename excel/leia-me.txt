@@ -1,0 +1,19 @@
+IMPORTANTE
+
+COLAR OS ARQUIVOS DO TIPO "xlsx" e/ou "PLANILHA DO MICROSOFT EXCEL"
+
+nos seguintes nomes:
+- daybi
+- eletromix
+- estoque
+- tecnogame
+
+APÓS ISSO ABRIR EXCEL DA DAYBI E ALTERAR OS SEGUINTES NOMES NAS TABELAS EXCEL
+
+Código      =>    Codigo
+Nome Grupo  =>    NomeGrupo
+R$ Custo    =>    Custo
+R$ Venda    =>    Venda
+
+
+APÓS SEGUIR A INSTRUÇÕES ESTA PRONTO PARA USAR! :D
